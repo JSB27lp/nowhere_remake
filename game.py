@@ -98,8 +98,6 @@ def start():
 
     state_game = 0
 
-    pygame.mixer.music.play(-1)
-
     while state_game == 0:
 
         if player.amIdead():

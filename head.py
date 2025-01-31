@@ -88,3 +88,12 @@ class CharacterSound():
             if self.frame_cpt == self.freq :
                 pygame.mixer.Sound.play(footstep_sound)
                 self.frame_cpt = 0
+
+class Music():
+    def __init__(self):
+        pass
+
+    def update(self,player,room):
+        pass
+
+pygame.mixer.music.play(-1)
