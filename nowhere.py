@@ -6,7 +6,6 @@ from game4 import *
 from game5 import *
 from game6 import *
 from game7 import *
-from game8 import *
 
 list_game_over = ["Think before","Fail better","Suicide is forbidden"]
 
