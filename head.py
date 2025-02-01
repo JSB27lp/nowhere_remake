@@ -107,6 +107,7 @@ class Music():
 
         else :
             if not pygame.mixer.music.get_busy():
+                pygame.mixer.music.load("assets/sounds/Mystery.wav")
                 pygame.mixer.music.play(-1)
 
 music = Music()
