@@ -93,24 +93,21 @@ class Music():
     def __init__(self):
         pygame.mixer.music.load("assets/sounds/Mystery.wav")
         pygame.mixer.music.play(-1)
-        self.defaultmusicstoped = False
 
-        self.papillon = pygame.mixer.Sound("assets/sounds/Papillon.wav")
-        
     def update(self,player,room):
         if room.name == "test_room5":
 
-            if not self.defaultmusicstoped  :
-                pygame.mixer.music.fadeout(2000)
-                self.defaultmusicstoped = True
-
             if player.pos.y > room.rect.bottom - 60 :
-                if pygame.mixer.Sound.get_num_channels(self.papillon) == 0:
-                    pygame.mixer.Sound.play(self.papillon)
+                if not pygame.mixer.music.get_busy():
+                    pygame.mixer.music.load("assets/sounds/Alterity.wav")
+                    pygame.mixer.music.play(-1)
+            else :
+                if pygame.mixer.music.get_busy():
+                    pygame.mixer.music.fadeout(1000)
+
         else :
-            if self.defaultmusicstoped and player.pos.y < room.rect.bottom - 55:
+            if not pygame.mixer.music.get_busy():
                 pygame.mixer.music.play(-1)
-                self.defaultmusicstoped = False
 
 music = Music()
 
