@@ -39,6 +39,8 @@ def start7():
 
     while state_game == 0:
 
+        music.update(player,room)
+
         for event in pygame.event.get():
             if not blk_trans:
                 player.controls(event)

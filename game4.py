@@ -84,6 +84,8 @@ def start4():
 
     while state_game == 0:
 
+        music.update(player,room)
+
         cool_down -= 1
         cd_txt = Text(str(cool_down/FPS),(255,0,0),27,(WIDTH/2,100))
 

@@ -17,7 +17,7 @@ infoObject = pygame.display.Info()
 WIDTH = infoObject.current_w
 HEIGHT = infoObject.current_h
 
-pygame.mixer.music.load("assets/sounds/Mystery.wav")
+
 footstep_sound = pygame.mixer.Sound("assets/sounds/step.wav")
 
 background_image = pygame.image.load("assets/MY1SYe.jpg").convert()

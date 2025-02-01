@@ -100,6 +100,8 @@ def start():
 
     while state_game == 0:
 
+        music.update(player,test_room)
+
         if player.amIdead():
             if last_scene:
                 state_game = 1
@@ -225,7 +227,7 @@ def start():
         FramePerSec.tick(FPS)
 
 
-    pygame.mixer.music.stop()
+    
 
     return state_game
 

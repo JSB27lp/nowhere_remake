@@ -91,9 +91,26 @@ class CharacterSound():
 
 class Music():
     def __init__(self):
-        pass
+        pygame.mixer.music.load("assets/sounds/Mystery.wav")
+        pygame.mixer.music.play(-1)
+        self.defaultmusicstoped = False
 
+        self.papillon = pygame.mixer.Sound("assets/sounds/Papillon.wav")
+        
     def update(self,player,room):
-        pass
+        if room.name == "test_room5":
 
-pygame.mixer.music.play(-1)
+            if not self.defaultmusicstoped  :
+                pygame.mixer.music.fadeout(2000)
+                self.defaultmusicstoped = True
+
+            if player.pos.y > room.rect.bottom - 60 :
+                if pygame.mixer.Sound.get_num_channels(self.papillon) == 0:
+                    pygame.mixer.Sound.play(self.papillon)
+        else :
+            if self.defaultmusicstoped and player.pos.y < room.rect.bottom - 55:
+                pygame.mixer.music.play(-1)
+                self.defaultmusicstoped = False
+
+music = Music()
+

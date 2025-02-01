@@ -94,6 +94,8 @@ def start3():
 
     while state_game == 0:
 
+        music.update(player,room)
+
         for event in pygame.event.get():
             player.controls(event)
 
