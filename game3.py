@@ -55,7 +55,7 @@ def getRoom(new_room_name,maze,room_index,room_z_index):
 
 def start3():
 
-    maze = generate(8,5)
+    maze = generate(4,3)
 
     '''for i in range(len(maze)) :
         print(maze[i])'''
