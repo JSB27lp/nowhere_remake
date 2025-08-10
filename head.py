@@ -92,18 +92,28 @@ class CharacterSound():
 class Music():
     def __init__(self):
         pygame.mixer.music.load("assets/sounds/Mystery.wav")
-        pygame.mixer.music.play(-1)
+        pygame.mixer.music.play(-1,0.0, 1000)
+
+        self.music_name = "Mystery"
 
     def update(self,player,room):
         if room.name == "test_room5":
 
             if player.pos.y > room.rect.bottom - 60 :
                 if not pygame.mixer.music.get_busy():
-                    pygame.mixer.music.load("assets/sounds/Alterity.wav")
-                    pygame.mixer.music.play(-1)
+                    pygame.mixer.music.load("assets/sounds/Papillon.wav")
+                    pygame.mixer.music.play(-1,0.0, 1000)
             else :
                 if pygame.mixer.music.get_busy():
                     pygame.mixer.music.fadeout(1000)
+
+        elif room.name == "blood_room":
+            if self.music_name != "blood_room":
+                self.music_name = "blood_room"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/bonhome_rouge.wav")
+                pygame.mixer.music.play(-1)
+
 
         else :
             if not pygame.mixer.music.get_busy():
