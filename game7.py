@@ -39,7 +39,7 @@ def start7():
 
     while state_game == 0:
 
-        music.update(player,room)
+        music.update4(player,room)
 
         for event in pygame.event.get():
             if not blk_trans:

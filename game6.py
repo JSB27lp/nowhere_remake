@@ -58,7 +58,7 @@ def start6():
 
     while state_game == 0:
 
-        music.update(player,room)
+        music.update3(player,room,going_crazy)
 
         for event in pygame.event.get():
             player.controls(event)

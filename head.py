@@ -96,10 +96,36 @@ class Music():
 
         self.music_name = "ambiance"
 
+    def update4(self,player,room):
+
+
+        if self.music_name != "train":
+            self.music_name = "train"
+            pygame.mixer.music.unload()
+            pygame.mixer.music.load("assets/sounds/soundtracks/train.wav")
+            pygame.mixer.music.play(-1,0.0, 1000)
+
+    def update3(self,player,room,going_crazy):
+
+        if going_crazy:
+            if self.music_name != "mindblow":
+                self.music_name = "mindblow"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/soundtracks/mindblow.wav")
+                pygame.mixer.music.play(-1,0.0, 1000)
+        
+        else :
+
+            if self.music_name != "black_lvl":
+                self.music_name = "black_lvl"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/soundtracks/black_lvl.mp3")
+                pygame.mixer.music.play(-1,0.0, 1000)
+
     
     def update2(self,player,room):
 
-        if room.name == "blood_room":
+        if room.name == "blood_room" or room.name == "blood_room_jail" or room.name == "blood_room_jail2":
             if self.music_name != "blood_room":
                 self.music_name = "blood_room"
                 pygame.mixer.music.unload()
@@ -126,7 +152,7 @@ class Music():
                 if pygame.mixer.music.get_busy():
                     pygame.mixer.music.fadeout(1000)
 
-        elif room.name == "blood_room":
+        elif room.name == "blood_room" or room.name == "blood_room_jail" or room.name == "blood_room_jail2":
             if self.music_name != "blood_room":
                 self.music_name = "blood_room"
                 pygame.mixer.music.unload()

@@ -123,6 +123,7 @@ def level7():
 
     screen.fill((0,0,0))
     game_over = GameOver("Congratulation",(255, 255, 255))
+    pygame.mixer.music.fadeout(1000)
     screen.blit(game_over.surf, (game_over.rect.x, game_over.rect.y))
     pygame.display.update()
     pygame.time.wait(8000)
