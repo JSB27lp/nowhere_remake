@@ -98,9 +98,21 @@ class Music():
 
     
     def update2(self,player,room):
-        print("update2 music")
-        pygame.mixer.music.load("assets/sounds/soundtracks/ambiance2.mp3")
-        pygame.mixer.music.play(-1,0.0, 1000)
+
+        if room.name == "blood_room":
+            if self.music_name != "blood_room":
+                self.music_name = "blood_room"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/soundtracks/bonhome_rouge.wav")
+                pygame.mixer.music.play(-1,0.0, 1000)
+        
+        else :
+
+            if self.music_name != "ambiance2_":
+                self.music_name = "ambiance2_"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/soundtracks/ambiance2_.wav")
+                pygame.mixer.music.play(-1,0.0, 1000)
 
     def update(self,player,room):
 

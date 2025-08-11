@@ -304,7 +304,7 @@ class Room(pygame.sprite.Sprite):
 
         self.bg_color = (0,0,0)
         if room_name_arguement == "test_room0" :
-            my_prison_text = ""
+            my_prison_text = "ENJOY THE RIDE"
             self.bg_color = (27,27,27)
             if (room_index >2 or room_index < -2) :
                 #self.add_cube()
