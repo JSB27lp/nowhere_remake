@@ -91,17 +91,25 @@ class CharacterSound():
 
 class Music():
     def __init__(self):
-        pygame.mixer.music.load("assets/sounds/Mystery.wav")
+        pygame.mixer.music.load("assets/sounds/soundtracks/ambiance.wav")
         pygame.mixer.music.play(-1,0.0, 1000)
 
-        self.music_name = "Mystery"
+        self.music_name = "ambiance"
+
+        self.associations = {
+            "test_room5" : "Papillon.wav",
+            "blood_room" : "bonhome_rouge.wav",
+            "default" : "ambiance.wav"
+        }
 
     def update(self,player,room):
+        print(room.name)
+
         if room.name == "test_room5":
 
             if player.pos.y > room.rect.bottom - 60 :
                 if not pygame.mixer.music.get_busy():
-                    pygame.mixer.music.load("assets/sounds/Papillon.wav")
+                    pygame.mixer.music.load("assets/sounds/soundtracks/Papillon.wav")
                     pygame.mixer.music.play(-1,0.0, 1000)
             else :
                 if pygame.mixer.music.get_busy():
@@ -111,14 +119,39 @@ class Music():
             if self.music_name != "blood_room":
                 self.music_name = "blood_room"
                 pygame.mixer.music.unload()
-                pygame.mixer.music.load("assets/sounds/bonhome_rouge.wav")
-                pygame.mixer.music.play(-1)
+                pygame.mixer.music.load("assets/sounds/soundtracks/bonhome_rouge.wav")
+                pygame.mixer.music.play(-1,0.0, 1000)
+
+        elif room.name == "hp_room" or room.name == "3doors":
+            if self.music_name != "hp":
+                self.music_name = "hp"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/soundtracks/hp.wav")
+                pygame.mixer.music.play(-1,0.0, 1000)
+
+        elif hasattr(room, 'color_cube'):
+
+            if room.color_cube and not room.color_cube.hyped:
+                if self.music_name != "cube":
+                    self.music_name = "cube"
+                    pygame.mixer.music.unload()
+                    pygame.mixer.music.load("assets/sounds/soundtracks/cube.wav")
+                    pygame.mixer.music.play(-1,0.0, 1000)
+
+            elif room.color_cube and room.color_cube.hyped:
+                if self.music_name != "open_cube":
+                    self.music_name = "open_cube"
+                    pygame.mixer.music.unload()
+                    pygame.mixer.music.load("assets/sounds/soundtracks/open_cube.wav")
+                    pygame.mixer.music.play(-1,0.0, 1000)
 
 
         else :
-            if not pygame.mixer.music.get_busy():
-                pygame.mixer.music.load("assets/sounds/Mystery.wav")
-                pygame.mixer.music.play(-1)
+            if self.music_name != "ambiance":
+                self.music_name = "ambiance"
+                pygame.mixer.music.unload()
+                pygame.mixer.music.load("assets/sounds/soundtracks/ambiance.wav")
+                pygame.mixer.music.play(-1,0.0, 1000)
 
 music = Music()
 
