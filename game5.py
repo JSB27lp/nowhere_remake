@@ -129,7 +129,7 @@ def start5():
     pris_dans_le_sang_mouvant = False
 
     while state_game == 0:
-        music.update(player,test_room)
+        music.update2(player,test_room)
 
         if player2 :
 

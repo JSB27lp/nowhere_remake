@@ -96,14 +96,13 @@ class Music():
 
         self.music_name = "ambiance"
 
-        self.associations = {
-            "test_room5" : "Papillon.wav",
-            "blood_room" : "bonhome_rouge.wav",
-            "default" : "ambiance.wav"
-        }
+    
+    def update2(self,player,room):
+        print("update2 music")
+        pygame.mixer.music.load("assets/sounds/soundtracks/ambiance2.mp3")
+        pygame.mixer.music.play(-1,0.0, 1000)
 
     def update(self,player,room):
-        print(room.name)
 
         if room.name == "test_room5":
 
@@ -144,6 +143,7 @@ class Music():
                     pygame.mixer.music.unload()
                     pygame.mixer.music.load("assets/sounds/soundtracks/open_cube.wav")
                     pygame.mixer.music.play(-1,0.0, 1000)
+
 
 
         else :
